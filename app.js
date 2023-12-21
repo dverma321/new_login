@@ -1,8 +1,12 @@
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const express = require('express');
+const cors = require('cors');
 const cookieParser = require('cookie-parser');
+
 const app = express();
+
+app.use(cors());
 
 app.use(cookieParser());
 dotenv.config({path:'./config.env'});
@@ -18,7 +22,7 @@ app.use(require('./routers/auth'));
 
 // const DB = 'mongodb+srv://divyanshu:divyanshudb@cluster0.piuvopq.mongodb.net/merndata?retryWrites=true&w=majority';
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5000;
 
 
 
